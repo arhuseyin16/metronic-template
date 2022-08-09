@@ -1,0 +1,31 @@
+<nbt-card [title]="'Destek Portalı'">
+  <ng-container cardContent>
+    <div class="row">
+      <div class="col-6">
+        <nbt-card title="Ngrx(Redux) Örneği">
+          <ng-container cardContent>
+            <h1>{{ count$ | async }}</h1>
+            <button class="btn btn-success mb-3" (click)="increase()">Artır</button>
+            <button class="btn btn-danger" (click)="decrease()">Azalt</button>
+          </ng-container>
+        </nbt-card>
+      </div>
+      <div class="col-6">
+        <nbt-card title="Api Örneği(Json place holder)">
+          <ng-container cardContent>
+            <ul class="nav" *ngIf="!isLoading; else localLoader">
+              <li class="nav-item" *ngFor="let item of data">
+                <h5>{{ item.title }}</h5>
+                <p>{{ item.body }}</p>
+              </li>
+            </ul>
+          </ng-container>
+        </nbt-card>
+      </div>
+    </div>
+  </ng-container>
+</nbt-card>
+
+<ng-template #localLoader>
+  <nbt-local-loader [height]="'300px'" [message]="'Yükleniyor'"></nbt-local-loader>
+</ng-template>

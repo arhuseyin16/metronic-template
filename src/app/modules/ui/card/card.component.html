@@ -1,0 +1,16 @@
+<div class="card card-custom" [ngClass]="cssClass">
+  <!-- Header -->
+  <div class="card-header" *ngIf="hasHead && !customHead">
+    <h3 class="card-title font-weight-bolder">{{ title }}</h3>
+    <div class="card-toolbar">
+      <ng-content select="[cardToolbar]"></ng-content>
+    </div>
+  </div>
+  <div class="card-header" *ngIf="customHead">
+    <ng-content select="[cardHeader]"></ng-content>
+  </div>
+  <!-- Body -->
+  <div class="card-body d-flex flex-column">
+    <ng-content select="[cardContent]"></ng-content>
+  </div>
+</div>
